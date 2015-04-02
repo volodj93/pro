@@ -1,0 +1,39 @@
+{% extends 'photo/main.html' %}
+{% load thumbnail %}
+{% block text %}
+    {% for album in my_album %}
+        <div class="album">
+        <a href='{{ album.slug }}'>
+
+            {% thumbnail album.img "200x200" crop='center' as im %}
+            <img src='{{ im.url }}' alt="{{ im.title }}" width="{{ im.width }}" 
+		height="{{ im.height }}">
+            {% endthumbnail %}
+        </a>
+        <p>{{ album.title }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+<!--Небольшой jQuery скриптик для выделения изображений при наведении курсора.
+Просто цвет блока становиться белым и появляется название.-->
+
+{% block script %}
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var photo_title = $("div.album p");
+        var album = $("div.album");
+        photo_title.hide();
+        album.hover(
+                function(){
+                    $(this).css({"backgroundColor":"#fff"});
+                    photo_title.show();
+                },
+                function(){
+                    photo_title.hide();
+                    $(this).css({"backgroundColor": ""});
+                }
+        );
+    });
+    </script>
+{% endblock %}

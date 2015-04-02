@@ -1,0 +1,45 @@
+style{
+    text: blue;
+    background-color: powderblue;
+    font-size: 90px;
+
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	line-height: 1.3em;
+	background-color: deepskyblue;
+
+
+
+}
+
+a, a:link, a:visited {
+	color: #000;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.more {
+	display: block;
+	margin-top: 20px;
+	width: 79px;
+	height: 27px;
+	line-height: 27px;
+	text-align: center;
+	color: #75a62c;
+
+}
+
+p { margin: 0 0 10px 0; padding: 0; }
+img { border: none; }
+blockquote { font-style: italic; margin: 0 0 0 10px;}
+cite { font-weight: bold; color:#333; }
+cite a, cite a:link, cite a:visited  { font-size: 12px; text-decoration: none; font-style: normal }
+cite span { font-weight: 400; color: #666; }
+em { color: #333; }

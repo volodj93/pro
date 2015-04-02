@@ -1,0 +1,21 @@
+{% extends 'photo/main.html' %}
+{% load thumbnail %}
+{% block text %}
+  {% for photo in photos.photo_set.all %}
+    <div class="photo">
+
+    <!--Превьюшки режем по центру размером 100 на 100-->
+
+    {% thumbnail photo.img "150x150" crop='center' as im %}
+
+      <!--Тут подключаем prettyPhoto-->
+
+      <a href="{{ MEDIA_URL }}{{ photo.img }}" rel="prettyPhoto[pp_gal]">
+      <img src='{{ im.url }}' alt="{{ photo.title }}" width="{{ im.width }}" 
+              height="{{ im.height }}">
+      </a>
+    {% endthumbnail %}
+    <p>{{ photo.title }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}
